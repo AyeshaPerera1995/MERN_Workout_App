@@ -9,9 +9,7 @@ const handleClick = async() => {
         method: 'DELETE'
     })
     const json = await response.json();
-    // if(!response.ok){
-    //     setError(json.error)
-    // }
+
     if(response.ok){
         dispatch({type:'DELETE_WORKOUT', payload:json})
     }
