@@ -1,4 +1,5 @@
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const WorkoutDetails = ({workout}) => {
     const { _id, title, load, reps, createdAt } = workout
@@ -20,8 +21,8 @@ const handleClick = async() => {
         <h4>{title}</h4>
         <p><strong>Load (kg): </strong>{load}</p>
         <p><strong>Reps: </strong>{reps}</p>
-        <p>{createdAt}</p>
-        <span onClick={handleClick}>delete</span>
+        <p>{ formatDistanceToNow(new Date(createdAt), { addSuffix: true })}</p>
+        <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
        </div>
 
     )
